@@ -51,7 +51,11 @@
 				y : Math.floor(Math.random()*15+3) * box
 			}
 			
+			myStorage = window.localStorage;
+			
 			let score = 0;
+			let highscore = localStorage.getItem("high");;
+			
 			
 			let d;
 			
@@ -124,6 +128,12 @@
 				
 				if(snakeX < box || snakeX > 17*box || snakeY < 3*box || snakeY > 17*box || collision(newHead,snake)){
 					dead.play();
+					
+					if(score>highscore){
+						highscore = score;
+						localStorage.setItem('high',highscore);
+					}
+					
 					clearInterval(game);
 				}
 				
@@ -132,7 +142,7 @@
 				ctx.fillStyle = "white";
 				ctx.font = "45px Changa one";
 				ctx.fillText(score,2*box,1.6*box);
-				ctx.fillText("Highscore: "+score,4*box,1.6*box);
+				ctx.fillText("Highscore: "+highscore,4*box,1.6*box);
 			}
 			
 			
