@@ -112,6 +112,10 @@
 				
 				if(snakeX == food.x && snakeY == food.y){
 					score++;
+					if(score>highscore){
+						highscore++;
+						localStorage.setItem('high',highscore);
+					}
 					eat.play();
 					food = {
 						x : Math.floor(Math.random()*17+1) * box,
