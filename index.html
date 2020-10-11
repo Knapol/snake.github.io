@@ -129,7 +129,7 @@
 				if(snakeX < box || snakeX > 17*box || snakeY < 3*box || snakeY > 17*box || collision(newHead,snake)){
 					dead.play();
 					
-					if(score>highscore){
+					if(score>=highscore){
 						highscore = score;
 						localStorage.setItem('high',highscore);
 					}
